@@ -1,0 +1,15 @@
+{
+  "id": "EXPORT-PII-OVERSEAS",
+  "title": "个人信息字段直接发往境外端点",
+  "severity": "high",
+  "source": "《个人信息保护法》第三十八条、第三十九条 —— 向境外提供个人信息应履行告知义务并取得单独同意；《数据出境安全评估办法》第四条",
+  "advice": "同一个调用/配置里既出现个人信息字段（手机号/身份证/邮箱/用户标识），又指向境外端点 —— 这是**最直接的数据出境形态**。要么改为境内处理，要么补：单独同意 + 出境安全评估（或标准合同备案）。",
+  "check": {
+    "type": "file-pattern",
+    "wholeFile": true,
+    "pattern": "(phone|mobile|idcard|id_card|idNumber|email|userInfo|user_info|profile|customer)[^\\n]{0,200}(amazonaws|googleapis|sentry\\.io|datadog|mixpanel|segment\\.io|amplitude|firebase|openai\\.com|anthropic\\.com)",
+    "flags": "i",
+    "exts": [".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".go", ".java", ".json", ".yml", ".yaml"],
+    "max": 20
+  }
+}

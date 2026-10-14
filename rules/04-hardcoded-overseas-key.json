@@ -1,0 +1,14 @@
+{
+  "id": "EXPORT-OVERSEAS-KEY",
+  "title": "境外服务的密钥硬编码在仓库里",
+  "severity": "high",
+  "source": "《数据安全法》第二十七条 —— 应建立数据安全管理制度；密钥管理通用实践（凭据不得硬编码）",
+  "advice": "指向境外服务的密钥直接写在代码/配置里。风险叠加：① 密钥泄露别人能花你的钱、读你的数据；② 因为服务在境外，泄露后的处置（停用、追责）都要走跨境流程，更慢。改用环境变量或密钥管理服务。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "(amazonaws|googleapis|openai|anthropic|stripe|twilio|sendgrid|datadog|sentry)[\\w.]*[\"']?\\s*[:=]\\s*[\"'][A-Za-z0-9_\\-]{20,}[\"']",
+    "flags": "gi",
+    "exts": [".js", ".mjs", ".cjs", ".ts", ".py", ".go", ".java", ".json", ".yml", ".yaml", ".env", ".ini", ".conf"],
+    "max": 20
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "EXPORT-OVERSEAS-ENDPOINT",
+  "title": "代码或配置里出现境外服务端点",
+  "severity": "medium",
+  "source": "《数据出境安全评估办法》第二条 —— 向境外提供在境内运营中收集和产生的重要数据和个人信息，应申报数据出境安全评估；《个人信息保护法》第三十八条 —— 向境外提供个人信息应满足特定条件",
+  "advice": "这里出现了境外服务域名。**出现不等于违规** —— 要看这个端点传的是什么数据：如果只是拉取公开文档，没问题；如果传的是用户个人信息或业务数据，就构成「数据出境」，需要走安全评估 / 标准合同 / 认证三条路径之一。请逐个确认。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "https?://[a-z0-9.-]*(amazonaws\\.com|cloudfront\\.net|googleapis\\.com|google\\.com|gstatic\\.com|azure\\.com|azurewebsites\\.net|cloudflare\\.com|sentry\\.io|datadog|mixpanel|segment\\.io|amplitude|firebase|auth0|stripe\\.com|twilio|sendgrid|mailgun|openai\\.com|anthropic\\.com|huggingface\\.co|vercel\\.com|netlify\\.app)",
+    "flags": "gi",
+    "exts": [".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".go", ".java", ".rb", ".php", ".json", ".yml", ".yaml", ".env", ".ini", ".conf", ".properties", ".xml", ".toml"],
+    "max": 30
+  }
+}

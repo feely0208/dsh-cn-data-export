@@ -1,0 +1,14 @@
+{
+  "id": "EXPORT-NO-ASSESSMENT",
+  "title": "文档里找不到数据出境合规说明",
+  "severity": "low",
+  "source": "《数据出境安全评估办法》第五条 —— 应开展数据出境风险自评估；《个人信息保护法》第五十五条 —— 向境外提供个人信息应事前进行个人信息保护影响评估",
+  "advice": "仓库文档里没有提到数据出境的处理方式。这不一定是问题（可能在内部文档），但如果你们确实有数据出境，法务和客户尽调都会要这份说明。建议在 README 或 SECURITY.md 写明：哪些数据出境、走哪条合规路径。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "数据出境|出境安全评估|标准合同|个人信息出境|cross-border|data export|standard contractual",
+    "flags": "i",
+    "paths": ["README.md", "SECURITY.md", "PRIVACY.md", "docs/*.md", "docs/**/*.md", "CONTRIBUTING.md"],
+    "evidence": "文档里没有提到数据出境的合规处理方式"
+  }
+}
