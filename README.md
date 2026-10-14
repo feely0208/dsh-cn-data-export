@@ -61,7 +61,7 @@ dsh-cn-data-export --html r.html
 - **判断不了「是否构成出境」** —— 那是需要知道数据种类/数量/接收方的人工判断。
 - 与 [dsh-data-scan](https://github.com/feely0208/dsh-data-scan) 分工：那个查**境内**数据在哪，这个查**数据去哪了**。
 
-**关键词**：数据出境 · 个人信息出境 · 出境安全评估 · 标准合同 · 跨境传输 · 境外端点
+**关键词**：数据出境 · 个人信息出境 · 跨境传输 · 数据出境安全评估办法 · 数据安全法 · 出境安全评估 · 标准合同
 **Keywords**: data export · cross-border transfer · data export assessment · standard contractual clauses · China compliance
 
 本插件是一个工具。使用者必须遵守所在地区法律法规，**对使用本项目造成的任何后果自行承担责任。**
