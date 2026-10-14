@@ -46,6 +46,8 @@ dsh plugin --profile web add @deepwhale-cn/dsh-cn-data-export
 npx @deepwhale-cn/dsh-cn-data-export
 ```
 
+![dsh-cn-data-export 的检查报告示例](https://raw.githubusercontent.com/feely0208/dsh-cn-data-export/main/docs/report.png)
+
 ## 用法
 
 ```bash
