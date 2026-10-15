@@ -1,0 +1,47 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0f13; display:flex; justify-content:center;
+         align-items:flex-start; padding:22px; font-family:-apple-system,"PingFang SC",
+         "Helvetica Neue",sans-serif; }
+  .win { width:1180px; border-radius:11px; overflow:hidden;
+          box-shadow:0 14px 44px rgba(0,0,0,.55); }
+  .bar { background:#2a2d34; padding:11px 15px; display:flex; align-items:center; gap:9px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .t { margin-left:11px; color:#7a8290; font-size:13px; letter-spacing:.02em; }
+  .term { background:#1b1d22; padding:20px 22px 24px; font-family:"SF Mono",Menlo,Consolas,
+           "PingFang SC",monospace; font-size:13.5px; line-height:1.72; }
+  .cmd { color:#5ee08a; margin-bottom:13px; font-size:13.5px; }
+  .cmd b { color:#fff; font-weight:600; }
+  .l { white-space:pre-wrap; word-break:break-word; }
+</style></head><body>
+  <div class="win">
+    <div class="bar">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="t">dsh-cn-data-export · rules</span>
+    </div>
+    <div class="term">
+      <div class="cmd">$ <b>dsh-cn-data-export --list-rules</b></div>
+      <div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  深鲸守护 · 数据出境检查 —— 4 条规则</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [medium] EXPORT-OVERSEAS-ENDPOINT</span></div>
+<div class="l"><span style="color:#d8dee9">        代码或配置里出现境外服务端点</span></div>
+<div class="l"><span style="color:#7a8290">        依据：《数据出境安全评估办法》第二条 —— 向境外提供在境内运营中收集和产生的重要数据和个人信息，应申报数据出境安全评估；《个人信息保护法》第三十八条 —— 向境外提供个人信息应满足特定条件</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] EXPORT-PII-OVERSEAS</span></div>
+<div class="l"><span style="color:#d8dee9">        个人信息字段直接发往境外端点</span></div>
+<div class="l"><span style="color:#7a8290">        依据：《个人信息保护法》第三十八条、第三十九条 —— 向境外提供个人信息应履行告知义务并取得单独同意；《数据出境安全评估办法》第四条</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [low] EXPORT-NO-ASSESSMENT</span></div>
+<div class="l"><span style="color:#d8dee9">        文档里找不到数据出境合规说明</span></div>
+<div class="l"><span style="color:#7a8290">        依据：《数据出境安全评估办法》第五条 —— 应开展数据出境风险自评估；《个人信息保护法》第五十五条 —— 向境外提供个人信息应事前进行个人信息保护影响评估</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] EXPORT-OVERSEAS-KEY</span></div>
+<div class="l"><span style="color:#d8dee9">        境外服务的密钥硬编码在仓库里</span></div>
+<div class="l"><span style="color:#7a8290">        依据：《数据安全法》第二十七条 —— 应建立数据安全管理制度；密钥管理通用实践（凭据不得硬编码）</span></div>
+    </div>
+  </div>
+</body></html>

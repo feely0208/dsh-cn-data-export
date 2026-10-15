@@ -6,9 +6,23 @@
   "advice": "指向境外服务的密钥直接写在代码/配置里。风险叠加：① 密钥泄露别人能花你的钱、读你的数据；② 因为服务在境外，泄露后的处置（停用、追责）都要走跨境流程，更慢。改用环境变量或密钥管理服务。",
   "check": {
     "type": "file-pattern",
-    "pattern": "(amazonaws|googleapis|openai|anthropic|stripe|twilio|sendgrid|datadog|sentry)[\\w.]*[\"']?\\s*[:=]\\s*[\"'][A-Za-z0-9_\\-]{20,}[\"']",
+    "pattern": "(?:(amazonaws|googleapis|openai|anthropic|stripe|twilio|sendgrid|datadog|sentry|mixpanel|firebase|auth0|cloudflare)[\\w.]*\\s*[:=]\\s*[\"\\'][A-Za-z0-9_\\-]{16,}[\"\\']|(?:\\w+_)?(?:KEY|TOKEN|SECRET|DSN|APIKEY)[\\w]*\\s*[:=]\\s*[\"\\'][A-Za-z0-9_\\-]{16,}[\"\\'][^;]{0,80}(amazonaws|googleapis|openai|anthropic|stripe|twilio|sendgrid|datadog|sentry|mixpanel|firebase))",
     "flags": "gi",
-    "exts": [".js", ".mjs", ".cjs", ".ts", ".py", ".go", ".java", ".json", ".yml", ".yaml", ".env", ".ini", ".conf"],
+    "exts": [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".ts",
+      ".py",
+      ".go",
+      ".java",
+      ".json",
+      ".yml",
+      ".yaml",
+      ".env",
+      ".ini",
+      ".conf"
+    ],
     "max": 20
   }
 }

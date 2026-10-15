@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0f13; display:flex; justify-content:center;
+         align-items:flex-start; padding:22px; font-family:-apple-system,"PingFang SC",
+         "Helvetica Neue",sans-serif; }
+  .win { width:1180px; border-radius:11px; overflow:hidden;
+          box-shadow:0 14px 44px rgba(0,0,0,.55); }
+  .bar { background:#2a2d34; padding:11px 15px; display:flex; align-items:center; gap:9px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .t { margin-left:11px; color:#7a8290; font-size:13px; letter-spacing:.02em; }
+  .term { background:#1b1d22; padding:20px 22px 24px; font-family:"SF Mono",Menlo,Consolas,
+           "PingFang SC",monospace; font-size:13.5px; line-height:1.72; }
+  .cmd { color:#5ee08a; margin-bottom:13px; font-size:13.5px; }
+  .cmd b { color:#fff; font-weight:600; }
+  .l { white-space:pre-wrap; word-break:break-word; }
+</style></head><body>
+  <div class="win">
+    <div class="bar">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="t">dsh-cn-data-export · demo</span>
+    </div>
+    <div class="term">
+      <div class="cmd">$ <b>dsh-cn-data-export --demo</b></div>
+      <div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  【演示模式】使用内置样本，不是你的真实项目。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  深鲸守护 · 数据出境检查 v0.1.0</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+<div class="l"><span style="color:#d8dee9">  扫描范围   内置演示样本 · 故意有问题的项目</span></div>
+<div class="l"><span style="color:#d8dee9">             3 个文件 · 0 个目录已跳过</span></div>
+<div class="l"><span style="color:#d8dee9">  检查规则   4/4 条</span></div>
+<div class="l"><span style="color:#ffd166">  命中       4 条</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ff6b6b">  【高】2 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 个人信息字段直接发往境外端点</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  analytics.js:6</span></div>
+<div class="l"><span style="color:#7a8290">      证据  phone, email, token: MIXPANEL</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《个人信息保护法》第三十八条、第三十九条 —— 向境外提供个人信息应履行告知义务并取得单独同意；《数据出境安全评估办法》第四条</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  同一个调用/配置里既出现个人信息字段（手机号/身份证/邮箱/用户标识），又指向境外端点 —— 这是**最直接的数据出境形态**。要么改为境内处理，要么补：单独同意 + 出境安全评估（或标准合同备案）。</span></div>
+<div class="l"><span style="color:#7a8290">    · 境外服务的密钥硬编码在仓库里</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  analytics.js:2</span></div>
+<div class="l"><span style="color:#7a8290">      证据  MIXPANEL_TOKEN = &quot;a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6&quot;</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十七条 —— 应建立数据安全管理制度；密钥管理通用实践（凭据不得硬编码）</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  指向境外服务的密钥直接写在代码/配置里。风险叠加：① 密钥泄露别人能花你的钱、读你的数据；② 因为服务在境外，泄露后的处置（停用、追责）都要走跨境流程，更慢。改用环境变量或密钥管理服务。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ffd166">  【中】1 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 代码或配置里出现境外服务端点</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  analytics.js:4</span></div>
+<div class="l"><span style="color:#7a8290">      证据  https://api.mixpanel</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据出境安全评估办法》第二条 —— 向境外提供在境内运营中收集和产生的重要数据和个人信息，应申报数据出境安全评估；《个人信息保护法》第三十八条 —— 向境外提供个人信息应满足特定条件</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  这里出现了境外服务域名。**出现不等于违规** —— 要看这个端点传的是什么数据：如果只是拉取公开文档，没问题；如果传的是用户个人信息或业务数据，就构成「数据出境」，需要走安全评估 / 标准合同 / 认证三条路径之一。请逐个确认。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#5ee08a">  【低】1 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 文档里找不到数据出境合规说明</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  README.md</span></div>
+<div class="l"><span style="color:#7a8290">      证据  以下文件都不存在：README.md / SECURITY.md / PRIVACY.md …</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据出境安全评估办法》第五条 —— 应开展数据出境风险自评估；《个人信息保护法》第五十五条 —— 向境外提供个人信息应事前进行个人信息保护影响评估</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  仓库文档里没有提到数据出境的处理方式。这不一定是问题（可能在内部文档），但如果你们确实有数据出境，法务和客户尽调都会要这份说明。建议在 README 或 SECURITY.md 写明：哪些数据出境、走哪条合规路径。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+    </div>
+  </div>
+</body></html>
