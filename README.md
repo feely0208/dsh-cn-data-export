@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-cn-data-export
 
+[![dshfind 收录](https://dshfind.com/api/badge/feely0208/dsh-cn-data-export?lang=zh)](https://dshfind.com/zh/plugins/feely0208/dsh-cn-data-export)
+
 **数据出境检查** —— 查代码与配置里的境外数据出口。
 
 ## 不装它会怎样
